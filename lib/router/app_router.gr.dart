@@ -10,6 +10,25 @@
 part of 'app_router.dart';
 
 /// generated route for
+/// [CreateMemberView]
+class CreateMemberRoute extends PageRouteInfo<void> {
+  const CreateMemberRoute({List<PageRouteInfo>? children})
+      : super(
+          CreateMemberRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'CreateMemberRoute';
+
+  static PageInfo page = PageInfo(
+    name,
+    builder: (data) {
+      return const CreateMemberView();
+    },
+  );
+}
+
+/// generated route for
 /// [HomeView]
 class HomeRoute extends PageRouteInfo<void> {
   const HomeRoute({List<PageRouteInfo>? children})

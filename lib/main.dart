@@ -52,7 +52,12 @@ class HomeView extends StatelessWidget {
                 AutoRouter.of(context)
                     .push(MemberListRoute(memberList: <Member>[ryoma, ryoma2]));
               },
-              child: const Text('会員一覧画面へ'))
+              child: const Text('メンバー一覧画面へ')),
+          FilledButton(
+              onPressed: () async {
+                AutoRouter.of(context).push(const CreateMemberRoute());
+              },
+              child: const Text('メンバー作成画面へ'))
         ],
       ),
     );
