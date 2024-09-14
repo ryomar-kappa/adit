@@ -10,10 +10,23 @@ class MemberListView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SingleChildScrollView(
-        child: Column(
-          children: [for (final member in memberList) _memberRow(member)],
-        ),
+      body: Column(
+        children: [
+          Row(
+            children: [
+              FilledButton(
+                  onPressed: () => AutoRouter.of(context).maybePop(),
+                  child: const Text('戻る'))
+            ],
+          ),
+          Expanded(
+            child: SingleChildScrollView(
+              child: Column(
+                children: [for (final member in memberList) _memberRow(member)],
+              ),
+            ),
+          ),
+        ],
       ),
     );
   }
