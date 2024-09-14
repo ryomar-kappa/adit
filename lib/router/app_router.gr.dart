@@ -49,17 +49,10 @@ class HomeRoute extends PageRouteInfo<void> {
 
 /// generated route for
 /// [MemberListView]
-class MemberListRoute extends PageRouteInfo<MemberListRouteArgs> {
-  MemberListRoute({
-    Key? key,
-    required List<Member> memberList,
-    List<PageRouteInfo>? children,
-  }) : super(
+class MemberListRoute extends PageRouteInfo<void> {
+  const MemberListRoute({List<PageRouteInfo>? children})
+      : super(
           MemberListRoute.name,
-          args: MemberListRouteArgs(
-            key: key,
-            memberList: memberList,
-          ),
           initialChildren: children,
         );
 
@@ -68,27 +61,7 @@ class MemberListRoute extends PageRouteInfo<MemberListRouteArgs> {
   static PageInfo page = PageInfo(
     name,
     builder: (data) {
-      final args = data.argsAs<MemberListRouteArgs>();
-      return MemberListView(
-        key: args.key,
-        memberList: args.memberList,
-      );
+      return const MemberListView();
     },
   );
-}
-
-class MemberListRouteArgs {
-  const MemberListRouteArgs({
-    this.key,
-    required this.memberList,
-  });
-
-  final Key? key;
-
-  final List<Member> memberList;
-
-  @override
-  String toString() {
-    return 'MemberListRouteArgs{key: $key, memberList: $memberList}';
-  }
 }

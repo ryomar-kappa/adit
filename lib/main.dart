@@ -7,6 +7,7 @@ import 'package:adit/model/member/mind_lebel.dart';
 import 'package:adit/router/app_router.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 final ryoma = Member(
     name: MemberName(fullName: '高山龍馬'),
@@ -23,7 +24,7 @@ final ryoma2 = Member(
     id: HRID(hrid: '101284'));
 
 void main() {
-  runApp(const MainApp());
+  runApp(const ProviderScope(child: MainApp()));
 }
 
 class MainApp extends StatelessWidget {
@@ -49,8 +50,7 @@ class HomeView extends StatelessWidget {
           MemberDetailHeaderView(),
           FilledButton(
               onPressed: () async {
-                AutoRouter.of(context)
-                    .push(MemberListRoute(memberList: <Member>[ryoma, ryoma2]));
+                AutoRouter.of(context).push(const MemberListRoute());
               },
               child: const Text('メンバー一覧画面へ')),
           FilledButton(
