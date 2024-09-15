@@ -29,6 +29,52 @@ class HomeRoute extends PageRouteInfo<void> {
 }
 
 /// generated route for
+/// [MemberDetailView]
+class MemberDetailRoute extends PageRouteInfo<MemberDetailRouteArgs> {
+  MemberDetailRoute({
+    Key? key,
+    required Member member,
+    List<PageRouteInfo>? children,
+  }) : super(
+          MemberDetailRoute.name,
+          args: MemberDetailRouteArgs(
+            key: key,
+            member: member,
+          ),
+          initialChildren: children,
+        );
+
+  static const String name = 'MemberDetailRoute';
+
+  static PageInfo page = PageInfo(
+    name,
+    builder: (data) {
+      final args = data.argsAs<MemberDetailRouteArgs>();
+      return MemberDetailView(
+        key: args.key,
+        member: args.member,
+      );
+    },
+  );
+}
+
+class MemberDetailRouteArgs {
+  const MemberDetailRouteArgs({
+    this.key,
+    required this.member,
+  });
+
+  final Key? key;
+
+  final Member member;
+
+  @override
+  String toString() {
+    return 'MemberDetailRouteArgs{key: $key, member: $member}';
+  }
+}
+
+/// generated route for
 /// [MemberListView]
 class MemberListRoute extends PageRouteInfo<void> {
   const MemberListRoute({List<PageRouteInfo>? children})

@@ -1,4 +1,5 @@
 import 'package:adit/model/member/member.dart';
+import 'package:adit/router/app_router.dart';
 import 'package:adit/screen/_common/async_value_widget.dart';
 import 'package:adit/screen/member_list/member_list_presenter.dart';
 import 'package:auto_route/auto_route.dart';
@@ -30,7 +31,10 @@ class MemberListView extends ConsumerWidget {
                 child: Column(
                   children: [
                     for (final member in viewModel.memberList)
-                      _memberRow(member)
+                      _memberRow(
+                          member,
+                          (member) => AutoRouter.of(context)
+                              .push(MemberDetailRoute(member: member)))
                   ],
                 ),
               ),
@@ -41,14 +45,17 @@ class MemberListView extends ConsumerWidget {
     );
   }
 
-  Widget _memberRow(Member member) {
-    return Container(
-      decoration: BoxDecoration(border: Border.all(color: Colors.black)),
-      child: Row(
-        children: [
-          Text(member.name.fullName),
-          Text('BN ${member.bn.yearOfJoined.toString()}')
-        ],
+  Widget _memberRow(Member member, void Function(Member member) onTap) {
+    return GestureDetector(
+      onTap: () => onTap(member),
+      child: Container(
+        decoration: BoxDecoration(border: Border.all(color: Colors.black)),
+        child: Row(
+          children: [
+            Text(member.name.fullName),
+            Text('BN ${member.bn.yearOfJoined.toString()}')
+          ],
+        ),
       ),
     );
   }
