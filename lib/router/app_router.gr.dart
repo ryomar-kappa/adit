@@ -149,3 +149,22 @@ class RegisterMemberRoute extends PageRouteInfo<void> {
     },
   );
 }
+
+/// generated route for
+/// [RegisterProjectView]
+class RegisterProjectRoute extends PageRouteInfo<void> {
+  const RegisterProjectRoute({List<PageRouteInfo>? children})
+      : super(
+          RegisterProjectRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'RegisterProjectRoute';
+
+  static PageInfo page = PageInfo(
+    name,
+    builder: (data) {
+      return const RegisterProjectView();
+    },
+  );
+}

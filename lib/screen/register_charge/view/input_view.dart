@@ -1,6 +1,7 @@
 import 'package:adit/model/member/member.dart';
 import 'package:adit/model/project/project_name.dart';
-import 'package:adit/provider/member_list_provider.dart';
+import 'package:adit/provider/member_master_provider.dart';
+import 'package:adit/provider/project_master_provider.dart';
 import 'package:adit/screen/register_charge/register_charge_presenter.dart';
 import 'package:adit/screen/register_charge/register_charge_view_model.dart';
 import 'package:flutter/material.dart';
@@ -19,7 +20,9 @@ class InputView extends ConsumerWidget {
         _inputMember(viewModel, presenter,
             memberMaster: ref.watch(memberMasterProvider)),
         Text('プロジェクト'),
-        _inputProjectForm(viewModel, presenter),
+        _inputProjectForm(viewModel, presenter,
+            projectNameMaster:
+                ref.watch(projectMasterProvider).map((e) => e.name).toList()),
         Text('月'),
         _inputMonthForm(viewModel, presenter),
         Text('工数'),
@@ -52,19 +55,14 @@ class InputView extends ConsumerWidget {
   }
 
   Widget _inputProjectForm(
-      RegisterChargeViewModel viewModel, RegisterChargePresenter presenter) {
+      RegisterChargeViewModel viewModel, RegisterChargePresenter presenter,
+      {required List<ProjectName> projectNameMaster}) {
     return DropdownButton(
         value: viewModel.projectName,
-        items: [
-          DropdownMenuItem<ProjectName>(
-            value: ProjectName(value: 'Tiger'),
-            child: const Text('Tiger'),
-          ),
-          DropdownMenuItem<ProjectName>(
-            value: ProjectName(value: 'Bloom'),
-            child: const Text('Bloom'),
-          )
-        ],
+        items: projectNameMaster
+            .map((projectName) => DropdownMenuItem(
+                value: projectName, child: Text(projectName.value)))
+            .toList(),
         onChanged: (projectName) {
           presenter.onChangeProjectname(projectName);
         });

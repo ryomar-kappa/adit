@@ -29,7 +29,7 @@ class HomeView extends StatelessWidget {
               child: const Text('プロジェクト一覧画面へ')),
           FilledButton(
               onPressed: () async {
-                AutoRouter.of(context).push(const RegisterMemberRoute());
+                AutoRouter.of(context).push(const RegisterProjectRoute());
               },
               child: const Text('プロジェクト登録画面へ')),
           FilledButton(

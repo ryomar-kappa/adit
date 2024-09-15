@@ -1,5 +1,5 @@
 import 'package:adit/model/member/member.dart';
-import 'package:adit/provider/member_list_provider.dart';
+import 'package:adit/provider/member_master_provider.dart';
 import 'package:adit/router/app_router.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';

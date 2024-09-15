@@ -5,6 +5,7 @@ import 'package:adit/screen/member_list/member_list_view.dart';
 import 'package:adit/screen/project_list/project_list_view.dart';
 import 'package:adit/screen/register_charge/view/register_charge_view.dart';
 import 'package:adit/screen/register_member/register_member_view.dart';
+import 'package:adit/screen/register_project/register_project_view.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/foundation.dart';
 
@@ -18,6 +19,8 @@ class AppRouter extends RootStackRouter {
         AutoRoute(page: MemberListRoute.page),
         AutoRoute(page: RegisterMemberRoute.page),
         AutoRoute(page: MemberDetailRoute.page),
-        AutoRoute(page: RegisterChargeRoute.page)
+        AutoRoute(page: RegisterChargeRoute.page),
+        AutoRoute(page: ProjectListRoute.page),
+        AutoRoute(page: RegisterProjectRoute.page)
       ];
 }
