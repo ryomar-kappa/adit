@@ -18,18 +18,38 @@ class MemberListView extends ConsumerWidget {
         children: [
           Expanded(
             child: SingleChildScrollView(
-              child: Column(
-                children: [
-                  for (final member in memberList)
-                    _memberRow(
+              child: Wrap(
+                children: memberList
+                    .map((member) => _memberCard(
                         member,
                         (member) => AutoRouter.of(context)
-                            .push(MemberDetailRoute(member: member)))
-                ],
+                            .push(MemberDetailRoute(member: member))))
+                    .toList(),
               ),
             ),
           ),
         ],
+      ),
+    );
+  }
+
+  Widget _memberCard(Member member, void Function(Member member) onTap) {
+    return GestureDetector(
+      behavior: HitTestBehavior.opaque,
+      onTap: () {
+        onTap(member);
+      },
+      child: SizedBox(
+        width: 150,
+        height: 100,
+        child: Card(
+          child: Column(
+            children: [
+              Text(member.name.fullName),
+              Text('BN ${member.bn.yearOfJoined.toString()}')
+            ],
+          ),
+        ),
       ),
     );
   }

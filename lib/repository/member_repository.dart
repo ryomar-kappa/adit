@@ -8,7 +8,7 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 final ryoma = Member(
     name: MemberName(fullName: '高山龍馬'),
-    bn: BN(yearOfJoined: 1),
+    bn: BN(yearOfJoined: 2023),
     awarenessLebel: AwarenessLebel(lebel: 1),
     mind: MindLebel(lebel: 1),
     id: HRID(hrid: '101284'));
