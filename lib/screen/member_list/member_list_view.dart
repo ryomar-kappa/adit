@@ -16,13 +16,6 @@ class MemberListView extends ConsumerWidget {
     return Scaffold(
       body: Column(
         children: [
-          Row(
-            children: [
-              FilledButton(
-                  onPressed: () => AutoRouter.of(context).maybePop(),
-                  child: const Text('戻る'))
-            ],
-          ),
           Expanded(
             child: SingleChildScrollView(
               child: Column(
