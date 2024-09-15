@@ -17,7 +17,7 @@ class MembersCharge {
     final totalAmount = chargeList
         .map((charge) => charge.amount)
         .fold(0, (previous, next) => previous + next);
-    if (totalAmount != 1) {
+    if (totalAmount != 100) {
       throw CreateMemberChargeException();
     }
     return MembersCharge._(
