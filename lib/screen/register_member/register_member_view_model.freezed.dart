@@ -16,11 +16,11 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$RegisterMemberViewModel {
-  String get hrid => throw _privateConstructorUsedError;
-  String get name => throw _privateConstructorUsedError;
-  String get yearOfJoined => throw _privateConstructorUsedError;
-  String get awareness => throw _privateConstructorUsedError;
-  String get mind => throw _privateConstructorUsedError;
+  String? get hrid => throw _privateConstructorUsedError;
+  String? get name => throw _privateConstructorUsedError;
+  String? get yearOfJoined => throw _privateConstructorUsedError;
+  String? get awareness => throw _privateConstructorUsedError;
+  String? get mind => throw _privateConstructorUsedError;
 
   /// Create a copy of RegisterMemberViewModel
   /// with the given fields replaced by the non-null parameter values.
@@ -36,11 +36,11 @@ abstract class $RegisterMemberViewModelCopyWith<$Res> {
       _$RegisterMemberViewModelCopyWithImpl<$Res, RegisterMemberViewModel>;
   @useResult
   $Res call(
-      {String hrid,
-      String name,
-      String yearOfJoined,
-      String awareness,
-      String mind});
+      {String? hrid,
+      String? name,
+      String? yearOfJoined,
+      String? awareness,
+      String? mind});
 }
 
 /// @nodoc
@@ -59,33 +59,33 @@ class _$RegisterMemberViewModelCopyWithImpl<$Res,
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? hrid = null,
-    Object? name = null,
-    Object? yearOfJoined = null,
-    Object? awareness = null,
-    Object? mind = null,
+    Object? hrid = freezed,
+    Object? name = freezed,
+    Object? yearOfJoined = freezed,
+    Object? awareness = freezed,
+    Object? mind = freezed,
   }) {
     return _then(_value.copyWith(
-      hrid: null == hrid
+      hrid: freezed == hrid
           ? _value.hrid
           : hrid // ignore: cast_nullable_to_non_nullable
-              as String,
-      name: null == name
+              as String?,
+      name: freezed == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
-              as String,
-      yearOfJoined: null == yearOfJoined
+              as String?,
+      yearOfJoined: freezed == yearOfJoined
           ? _value.yearOfJoined
           : yearOfJoined // ignore: cast_nullable_to_non_nullable
-              as String,
-      awareness: null == awareness
+              as String?,
+      awareness: freezed == awareness
           ? _value.awareness
           : awareness // ignore: cast_nullable_to_non_nullable
-              as String,
-      mind: null == mind
+              as String?,
+      mind: freezed == mind
           ? _value.mind
           : mind // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
     ) as $Val);
   }
 }
@@ -100,11 +100,11 @@ abstract class _$$RegisterMemberViewModelImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {String hrid,
-      String name,
-      String yearOfJoined,
-      String awareness,
-      String mind});
+      {String? hrid,
+      String? name,
+      String? yearOfJoined,
+      String? awareness,
+      String? mind});
 }
 
 /// @nodoc
@@ -122,33 +122,33 @@ class __$$RegisterMemberViewModelImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? hrid = null,
-    Object? name = null,
-    Object? yearOfJoined = null,
-    Object? awareness = null,
-    Object? mind = null,
+    Object? hrid = freezed,
+    Object? name = freezed,
+    Object? yearOfJoined = freezed,
+    Object? awareness = freezed,
+    Object? mind = freezed,
   }) {
     return _then(_$RegisterMemberViewModelImpl(
-      hrid: null == hrid
+      hrid: freezed == hrid
           ? _value.hrid
           : hrid // ignore: cast_nullable_to_non_nullable
-              as String,
-      name: null == name
+              as String?,
+      name: freezed == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
-              as String,
-      yearOfJoined: null == yearOfJoined
+              as String?,
+      yearOfJoined: freezed == yearOfJoined
           ? _value.yearOfJoined
           : yearOfJoined // ignore: cast_nullable_to_non_nullable
-              as String,
-      awareness: null == awareness
+              as String?,
+      awareness: freezed == awareness
           ? _value.awareness
           : awareness // ignore: cast_nullable_to_non_nullable
-              as String,
-      mind: null == mind
+              as String?,
+      mind: freezed == mind
           ? _value.mind
           : mind // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
     ));
   }
 }
@@ -166,15 +166,15 @@ class _$RegisterMemberViewModelImpl
       required this.mind});
 
   @override
-  final String hrid;
+  final String? hrid;
   @override
-  final String name;
+  final String? name;
   @override
-  final String yearOfJoined;
+  final String? yearOfJoined;
   @override
-  final String awareness;
+  final String? awareness;
   @override
-  final String mind;
+  final String? mind;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
@@ -223,22 +223,22 @@ class _$RegisterMemberViewModelImpl
 
 abstract class _RegisterMemberViewModel implements RegisterMemberViewModel {
   const factory _RegisterMemberViewModel(
-      {required final String hrid,
-      required final String name,
-      required final String yearOfJoined,
-      required final String awareness,
-      required final String mind}) = _$RegisterMemberViewModelImpl;
+      {required final String? hrid,
+      required final String? name,
+      required final String? yearOfJoined,
+      required final String? awareness,
+      required final String? mind}) = _$RegisterMemberViewModelImpl;
 
   @override
-  String get hrid;
+  String? get hrid;
   @override
-  String get name;
+  String? get name;
   @override
-  String get yearOfJoined;
+  String? get yearOfJoined;
   @override
-  String get awareness;
+  String? get awareness;
   @override
-  String get mind;
+  String? get mind;
 
   /// Create a copy of RegisterMemberViewModel
   /// with the given fields replaced by the non-null parameter values.
