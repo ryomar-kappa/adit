@@ -10,7 +10,7 @@
 part of 'app_router.dart';
 
 /// generated route for
-/// [CreateMemberView]
+/// [RegisterMemberView]
 class CreateMemberRoute extends PageRouteInfo<void> {
   const CreateMemberRoute({List<PageRouteInfo>? children})
       : super(
@@ -23,7 +23,7 @@ class CreateMemberRoute extends PageRouteInfo<void> {
   static PageInfo page = PageInfo(
     name,
     builder: (data) {
-      return const CreateMemberView();
+      return const RegisterMemberView();
     },
   );
 }

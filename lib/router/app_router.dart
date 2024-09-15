@@ -1,7 +1,7 @@
-import 'package:adit/screen/create_member/create_member_view.dart';
 import 'package:adit/screen/home/home_view.dart';
 import 'package:adit/screen/member_list/member_list_view.dart';
 import 'package:adit/screen/project_list/project_list_view.dart';
+import 'package:adit/screen/register_member/register_member_view.dart';
 import 'package:auto_route/auto_route.dart';
 
 part 'app_router.gr.dart';
