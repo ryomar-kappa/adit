@@ -113,6 +113,25 @@ class ProjectListRoute extends PageRouteInfo<void> {
 }
 
 /// generated route for
+/// [RegisterChargeView]
+class RegisterChargeRoute extends PageRouteInfo<void> {
+  const RegisterChargeRoute({List<PageRouteInfo>? children})
+      : super(
+          RegisterChargeRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'RegisterChargeRoute';
+
+  static PageInfo page = PageInfo(
+    name,
+    builder: (data) {
+      return const RegisterChargeView();
+    },
+  );
+}
+
+/// generated route for
 /// [RegisterMemberView]
 class RegisterMemberRoute extends PageRouteInfo<void> {
   const RegisterMemberRoute({List<PageRouteInfo>? children})

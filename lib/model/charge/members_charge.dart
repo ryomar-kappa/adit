@@ -14,13 +14,17 @@ class MembersChargeByMonth {
       {required this.hrid, required this.yearMonth, required this.chargeList});
 
   factory MembersChargeByMonth.from(
-      HRID hrid, YearMonth yearMonth, List<Charge> chargeList) {
-    final totalAmount = chargeList
+      HRID hrid, YearMonth yearMonth, List<CreateChargeCommand> commandList) {
+    final totalAmount = commandList
         .map((charge) => charge.amount)
         .fold(0, (previous, next) => previous + next);
     if (totalAmount != 100) {
       throw CreateMemberChargeException();
     }
+
+    final chargeList =
+        commandList.map((command) => Charge.fromCommand(command)).toList();
+
     return MembersChargeByMonth._(
         hrid: hrid, yearMonth: yearMonth, chargeList: chargeList);
   }
@@ -35,4 +39,11 @@ class MembersChargeByMonth {
 class CreateMemberChargeException extends IOException {
   @override
   String toString() => "CreateMemberChargeException";
+}
+
+class CreateChargeCommand {
+  final String projectName;
+  final int amount;
+
+  CreateChargeCommand({required this.projectName, required this.amount});
 }
