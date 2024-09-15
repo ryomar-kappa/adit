@@ -17,7 +17,7 @@ final _privateConstructorUsedError = UnsupportedError(
 /// @nodoc
 mixin _$MemberDetailViewModel {
   Member get member => throw _privateConstructorUsedError;
-  List<MembersCharge> get membersChargeList =>
+  List<MembersChargeByMonth> get membersChargeList =>
       throw _privateConstructorUsedError;
 
   /// Create a copy of MemberDetailViewModel
@@ -33,7 +33,7 @@ abstract class $MemberDetailViewModelCopyWith<$Res> {
           $Res Function(MemberDetailViewModel) then) =
       _$MemberDetailViewModelCopyWithImpl<$Res, MemberDetailViewModel>;
   @useResult
-  $Res call({Member member, List<MembersCharge> membersChargeList});
+  $Res call({Member member, List<MembersChargeByMonth> membersChargeList});
 }
 
 /// @nodoc
@@ -63,7 +63,7 @@ class _$MemberDetailViewModelCopyWithImpl<$Res,
       membersChargeList: null == membersChargeList
           ? _value.membersChargeList
           : membersChargeList // ignore: cast_nullable_to_non_nullable
-              as List<MembersCharge>,
+              as List<MembersChargeByMonth>,
     ) as $Val);
   }
 }
@@ -77,7 +77,7 @@ abstract class _$$MemberDetailViewModelImplCopyWith<$Res>
       __$$MemberDetailViewModelImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({Member member, List<MembersCharge> membersChargeList});
+  $Res call({Member member, List<MembersChargeByMonth> membersChargeList});
 }
 
 /// @nodoc
@@ -105,7 +105,7 @@ class __$$MemberDetailViewModelImplCopyWithImpl<$Res>
       membersChargeList: null == membersChargeList
           ? _value._membersChargeList
           : membersChargeList // ignore: cast_nullable_to_non_nullable
-              as List<MembersCharge>,
+              as List<MembersChargeByMonth>,
     ));
   }
 }
@@ -115,15 +115,15 @@ class __$$MemberDetailViewModelImplCopyWithImpl<$Res>
 class _$MemberDetailViewModelImpl extends _MemberDetailViewModel {
   const _$MemberDetailViewModelImpl(
       {required this.member,
-      required final List<MembersCharge> membersChargeList})
+      required final List<MembersChargeByMonth> membersChargeList})
       : _membersChargeList = membersChargeList,
         super._();
 
   @override
   final Member member;
-  final List<MembersCharge> _membersChargeList;
+  final List<MembersChargeByMonth> _membersChargeList;
   @override
-  List<MembersCharge> get membersChargeList {
+  List<MembersChargeByMonth> get membersChargeList {
     if (_membersChargeList is EqualUnmodifiableListView)
       return _membersChargeList;
     // ignore: implicit_dynamic_type
@@ -162,14 +162,14 @@ class _$MemberDetailViewModelImpl extends _MemberDetailViewModel {
 abstract class _MemberDetailViewModel extends MemberDetailViewModel {
   const factory _MemberDetailViewModel(
           {required final Member member,
-          required final List<MembersCharge> membersChargeList}) =
+          required final List<MembersChargeByMonth> membersChargeList}) =
       _$MemberDetailViewModelImpl;
   const _MemberDetailViewModel._() : super._();
 
   @override
   Member get member;
   @override
-  List<MembersCharge> get membersChargeList;
+  List<MembersChargeByMonth> get membersChargeList;
 
   /// Create a copy of MemberDetailViewModel
   /// with the given fields replaced by the non-null parameter values.
