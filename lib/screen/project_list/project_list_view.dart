@@ -1,6 +1,6 @@
 import 'package:adit/model/project.dart';
 import 'package:adit/screen/_common/async_value_widget.dart';
-import 'package:adit/screen/project_list.dart/project_list_presenter.dart';
+import 'package:adit/screen/project_list/project_list_presenter.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
