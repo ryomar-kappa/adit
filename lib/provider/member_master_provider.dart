@@ -26,6 +26,6 @@ class MemberMasterProvider extends Notifier<List<Member>> {
 
   Future<void> _fetch() async {
     final members = await ref.read(memberRepository).fetchMembers();
-    state = members;
+    state = List.from(members);
   }
 }
