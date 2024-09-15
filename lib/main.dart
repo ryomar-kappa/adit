@@ -13,8 +13,8 @@ class MainApp extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    ref.watch(memberMasterProvider);
-    ref.watch(projectMasterProvider);
+    ref.read(memberMasterProvider);
+    ref.read(projectMasterProvider);
     return MaterialApp.router(
       routerConfig: AppRouter().config(),
     );
