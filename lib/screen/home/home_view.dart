@@ -11,7 +11,6 @@ class HomeView extends StatelessWidget {
     return Scaffold(
       body: Column(
         children: [
-          MemberDetailHeaderView(),
           FilledButton(
               onPressed: () async {
                 AutoRouter.of(context).push(const MemberListRoute());
@@ -39,17 +38,6 @@ class HomeView extends StatelessWidget {
               child: const Text('チャージ登録画面'))
         ],
       ),
-    );
-  }
-}
-
-class MemberDetailHeaderView extends StatelessWidget {
-  const MemberDetailHeaderView({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return const Row(
-      children: [Text('高山 龍馬'), Text('BN2023'), Text('自覚5'), Text('マインド5')],
     );
   }
 }
