@@ -1,14 +1,15 @@
-class RegisterMemberViewModel {
-  final String hrid;
-  final String name;
-  final String yearOfJoined;
-  final String awareness;
-  final String mind;
+import 'package:flutter/foundation.dart';
+import 'package:freezed_annotation/freezed_annotation.dart';
 
-  RegisterMemberViewModel(
-      {required this.hrid,
-      required this.name,
-      required this.yearOfJoined,
-      required this.awareness,
-      required this.mind});
+part 'register_member_view_model.freezed.dart';
+
+@freezed
+class RegisterMemberViewModel with _$RegisterMemberViewModel {
+  const factory RegisterMemberViewModel({
+    required String hrid,
+    required String name,
+    required String yearOfJoined,
+    required String awareness,
+    required String mind,
+  }) = _RegisterMemberViewModel;
 }

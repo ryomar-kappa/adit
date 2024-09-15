@@ -10,25 +10,6 @@
 part of 'app_router.dart';
 
 /// generated route for
-/// [RegisterMemberView]
-class CreateMemberRoute extends PageRouteInfo<void> {
-  const CreateMemberRoute({List<PageRouteInfo>? children})
-      : super(
-          CreateMemberRoute.name,
-          initialChildren: children,
-        );
-
-  static const String name = 'CreateMemberRoute';
-
-  static PageInfo page = PageInfo(
-    name,
-    builder: (data) {
-      return const RegisterMemberView();
-    },
-  );
-}
-
-/// generated route for
 /// [HomeView]
 class HomeRoute extends PageRouteInfo<void> {
   const HomeRoute({List<PageRouteInfo>? children})
@@ -81,6 +62,25 @@ class ProjectListRoute extends PageRouteInfo<void> {
     name,
     builder: (data) {
       return const ProjectListView();
+    },
+  );
+}
+
+/// generated route for
+/// [RegisterMemberView]
+class RegisterMemberRoute extends PageRouteInfo<void> {
+  const RegisterMemberRoute({List<PageRouteInfo>? children})
+      : super(
+          RegisterMemberRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'RegisterMemberRoute';
+
+  static PageInfo page = PageInfo(
+    name,
+    builder: (data) {
+      return const RegisterMemberView();
     },
   );
 }
