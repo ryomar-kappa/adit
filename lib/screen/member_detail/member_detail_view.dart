@@ -18,6 +18,9 @@ class MemberDetailView extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     return Scaffold(
+      appBar: AppBar(
+        title: const Text('チャージ表'),
+      ),
       body: AsyncValueWidget(
           value: ref.watch(memberDetailPresenter(member)),
           buildData: (viewModel) =>

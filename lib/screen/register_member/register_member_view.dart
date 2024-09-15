@@ -1,4 +1,5 @@
 import 'package:adit/screen/register_member/register_member_presenter.dart';
+import 'package:adit/screen/register_member/register_member_view_model.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
@@ -12,41 +13,107 @@ class RegisterMemberView extends ConsumerWidget {
     final presenter = ref.watch(registerMemberPresenter.notifier);
     final viewModel = ref.watch(registerMemberPresenter);
     return Scaffold(
-      body: Column(
-        children: [
-          Text('HRID'),
-          TextFormField(
+      appBar: AppBar(
+        title: const Text('メンバー登録'),
+      ),
+      body: Padding(
+        padding: const EdgeInsets.only(left: 16),
+        child: Column(
+          children: [
+            _inputHRID(viewModel, presenter),
+            _inputName(viewModel, presenter),
+            _inputYearOfJoined(viewModel, presenter),
+            _inputAwareness(viewModel, presenter),
+            _inputMind(viewModel, presenter),
+            FilledButton(
+                onPressed: () {
+                  presenter.onRegister();
+                  AutoRouter.of(context).popUntilRoot();
+                },
+                child: const Text('登録'))
+          ],
+        ),
+      ),
+    );
+  }
+
+  Widget _inputHRID(
+      RegisterMemberViewModel viewModel, RegisterMemberPresenter presenter) {
+    return Row(
+      children: [
+        const Expanded(flex: 1, child: Text('HRID')),
+        Expanded(
+          flex: 4,
+          child: TextFormField(
             initialValue: viewModel.hrid,
-            onChanged: (value) => presenter.onChangeHrid(value),
+            onChanged: presenter.onChangeHrid,
           ),
-          Text('名前'),
-          TextFormField(
+        ),
+      ],
+    );
+  }
+
+  Widget _inputName(
+      RegisterMemberViewModel viewModel, RegisterMemberPresenter presenter) {
+    return Row(
+      children: [
+        const Expanded(flex: 1, child: Text('名前')),
+        Expanded(
+          flex: 4,
+          child: TextFormField(
             initialValue: viewModel.name,
             onChanged: presenter.onChangeName,
           ),
-          Text('入社年度'),
-          TextFormField(
+        ),
+      ],
+    );
+  }
+
+  Widget _inputYearOfJoined(
+      RegisterMemberViewModel viewModel, RegisterMemberPresenter presenter) {
+    return Row(
+      children: [
+        const Expanded(flex: 1, child: Text('入社年度')),
+        Expanded(
+          flex: 4,
+          child: TextFormField(
             initialValue: viewModel.yearOfJoined,
             onChanged: presenter.onChangeYearOfJoined,
           ),
-          Text('自覚'),
-          TextFormField(
+        ),
+      ],
+    );
+  }
+
+  Widget _inputAwareness(
+      RegisterMemberViewModel viewModel, RegisterMemberPresenter presenter) {
+    return Row(
+      children: [
+        const Expanded(flex: 1, child: Text('自覚')),
+        Expanded(
+          flex: 4,
+          child: TextFormField(
             initialValue: viewModel.awareness,
             onChanged: presenter.onChangeAwareness,
           ),
-          Text('マインド'),
-          TextFormField(
+        ),
+      ],
+    );
+  }
+
+  Widget _inputMind(
+      RegisterMemberViewModel viewModel, RegisterMemberPresenter presenter) {
+    return Row(
+      children: [
+        const Expanded(flex: 1, child: Text('マインド')),
+        Expanded(
+          flex: 4,
+          child: TextFormField(
             initialValue: viewModel.mind,
             onChanged: presenter.onChangeMind,
           ),
-          FilledButton(
-              onPressed: () {
-                presenter.onRegister();
-                AutoRouter.of(context).popUntilRoot();
-              },
-              child: Text('登録'))
-        ],
-      ),
+        ),
+      ],
     );
   }
 }

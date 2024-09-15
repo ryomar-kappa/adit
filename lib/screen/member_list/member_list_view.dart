@@ -14,12 +14,20 @@ class MemberListView extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final memberList = ref.watch(memberMasterProvider);
     return Scaffold(
-      floatingActionButton: FloatingActionButton(
-          child: const Icon(Icons.add),
-          onPressed: () =>
-              AutoRouter.of(context).push(const RegisterMemberRoute())),
       body: Column(
         children: [
+          const SizedBox(height: 16),
+          FilledButton(
+              onPressed: () =>
+                  AutoRouter.of(context).push(const RegisterMemberRoute()),
+              child: const Row(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Icon(Icons.add),
+                  Text('新規登録'),
+                ],
+              )),
+          const SizedBox(height: 16),
           Expanded(
             child: SingleChildScrollView(
               child: Wrap(
