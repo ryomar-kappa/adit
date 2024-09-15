@@ -10,6 +10,7 @@ part 'register_charge_view_model.freezed.dart';
 class RegisterChargeViewModel with _$RegisterChargeViewModel {
   const factory RegisterChargeViewModel({
     required ProjectName? projectName,
+    required int? month,
     required String? amount,
   }) = _RegisterChargeViewModel;
 }

@@ -14,7 +14,8 @@ class RegisterChargePresenter
     extends AutoDisposeNotifier<RegisterChargeViewModel> {
   @override
   RegisterChargeViewModel build() {
-    return const RegisterChargeViewModel(projectName: null, amount: null);
+    return const RegisterChargeViewModel(
+        projectName: null, month: null, amount: null);
   }
 
   void onChangeProjectname(ProjectName? projectName) {
@@ -25,9 +26,13 @@ class RegisterChargePresenter
     state = state.copyWith(amount: amount);
   }
 
+  void onChangeMonth(int? month) {
+    state = state.copyWith(month: month);
+  }
+
   void onRegister() {
     final charge = MembersChargeByMonth.from(
-        HRID(hrid: '101284'), YearMonth(year: 2024, month: 4), [
+        HRID(hrid: '101284'), YearMonth(year: 2024, month: state.month!), [
       CreateChargeCommand(
           projectName: state.projectName!.value,
           amount: int.parse(state.amount!))
