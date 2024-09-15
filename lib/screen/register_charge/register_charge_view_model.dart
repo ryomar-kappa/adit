@@ -1,5 +1,6 @@
 // 保存時の自動整形でfoundationが消えないように警告を消している
 // ignore: unused_import, directives_ordering
+import 'package:adit/model/member/member.dart';
 import 'package:adit/model/project/project_name.dart';
 import 'package:flutter/foundation.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
@@ -12,5 +13,6 @@ class RegisterChargeViewModel with _$RegisterChargeViewModel {
     required ProjectName? projectName,
     required int? month,
     required String? amount,
+    required Member? member,
   }) = _RegisterChargeViewModel;
 }

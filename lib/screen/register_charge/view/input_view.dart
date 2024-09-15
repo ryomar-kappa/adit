@@ -1,4 +1,6 @@
+import 'package:adit/model/member/member.dart';
 import 'package:adit/model/project/project_name.dart';
+import 'package:adit/provider/member_list_provider.dart';
 import 'package:adit/screen/register_charge/register_charge_presenter.dart';
 import 'package:adit/screen/register_charge/register_charge_view_model.dart';
 import 'package:flutter/material.dart';
@@ -13,6 +15,9 @@ class InputView extends ConsumerWidget {
     final viewModel = ref.watch(registerChargePresenter);
     return Column(
       children: [
+        Text('メンバー'),
+        _inputMember(viewModel, presenter,
+            memberMaster: ref.watch(memberMasterProvider)),
         Text('プロジェクト'),
         _inputProjectForm(viewModel, presenter),
         Text('月'),
@@ -71,5 +76,19 @@ class InputView extends ConsumerWidget {
       initialValue: viewModel.amount,
       onChanged: presenter.onChangeAmount,
     );
+  }
+
+  Widget _inputMember(
+      RegisterChargeViewModel viewModel, RegisterChargePresenter presenter,
+      {required List<Member> memberMaster}) {
+    return DropdownButton(
+        value: viewModel.member,
+        items: memberMaster
+            .map((member) => DropdownMenuItem(
+                value: member, child: Text(member.name.fullName)))
+            .toList(),
+        onChanged: (member) {
+          presenter.onChangeMember(member);
+        });
   }
 }

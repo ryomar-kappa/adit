@@ -19,6 +19,7 @@ mixin _$RegisterChargeViewModel {
   ProjectName? get projectName => throw _privateConstructorUsedError;
   int? get month => throw _privateConstructorUsedError;
   String? get amount => throw _privateConstructorUsedError;
+  Member? get member => throw _privateConstructorUsedError;
 
   /// Create a copy of RegisterChargeViewModel
   /// with the given fields replaced by the non-null parameter values.
@@ -33,7 +34,8 @@ abstract class $RegisterChargeViewModelCopyWith<$Res> {
           $Res Function(RegisterChargeViewModel) then) =
       _$RegisterChargeViewModelCopyWithImpl<$Res, RegisterChargeViewModel>;
   @useResult
-  $Res call({ProjectName? projectName, int? month, String? amount});
+  $Res call(
+      {ProjectName? projectName, int? month, String? amount, Member? member});
 }
 
 /// @nodoc
@@ -55,6 +57,7 @@ class _$RegisterChargeViewModelCopyWithImpl<$Res,
     Object? projectName = freezed,
     Object? month = freezed,
     Object? amount = freezed,
+    Object? member = freezed,
   }) {
     return _then(_value.copyWith(
       projectName: freezed == projectName
@@ -69,6 +72,10 @@ class _$RegisterChargeViewModelCopyWithImpl<$Res,
           ? _value.amount
           : amount // ignore: cast_nullable_to_non_nullable
               as String?,
+      member: freezed == member
+          ? _value.member
+          : member // ignore: cast_nullable_to_non_nullable
+              as Member?,
     ) as $Val);
   }
 }
@@ -82,7 +89,8 @@ abstract class _$$RegisterChargeViewModelImplCopyWith<$Res>
       __$$RegisterChargeViewModelImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({ProjectName? projectName, int? month, String? amount});
+  $Res call(
+      {ProjectName? projectName, int? month, String? amount, Member? member});
 }
 
 /// @nodoc
@@ -103,6 +111,7 @@ class __$$RegisterChargeViewModelImplCopyWithImpl<$Res>
     Object? projectName = freezed,
     Object? month = freezed,
     Object? amount = freezed,
+    Object? member = freezed,
   }) {
     return _then(_$RegisterChargeViewModelImpl(
       projectName: freezed == projectName
@@ -117,6 +126,10 @@ class __$$RegisterChargeViewModelImplCopyWithImpl<$Res>
           ? _value.amount
           : amount // ignore: cast_nullable_to_non_nullable
               as String?,
+      member: freezed == member
+          ? _value.member
+          : member // ignore: cast_nullable_to_non_nullable
+              as Member?,
     ));
   }
 }
@@ -127,7 +140,10 @@ class _$RegisterChargeViewModelImpl
     with DiagnosticableTreeMixin
     implements _RegisterChargeViewModel {
   const _$RegisterChargeViewModelImpl(
-      {required this.projectName, required this.month, required this.amount});
+      {required this.projectName,
+      required this.month,
+      required this.amount,
+      required this.member});
 
   @override
   final ProjectName? projectName;
@@ -135,10 +151,12 @@ class _$RegisterChargeViewModelImpl
   final int? month;
   @override
   final String? amount;
+  @override
+  final Member? member;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'RegisterChargeViewModel(projectName: $projectName, month: $month, amount: $amount)';
+    return 'RegisterChargeViewModel(projectName: $projectName, month: $month, amount: $amount, member: $member)';
   }
 
   @override
@@ -148,7 +166,8 @@ class _$RegisterChargeViewModelImpl
       ..add(DiagnosticsProperty('type', 'RegisterChargeViewModel'))
       ..add(DiagnosticsProperty('projectName', projectName))
       ..add(DiagnosticsProperty('month', month))
-      ..add(DiagnosticsProperty('amount', amount));
+      ..add(DiagnosticsProperty('amount', amount))
+      ..add(DiagnosticsProperty('member', member));
   }
 
   @override
@@ -159,11 +178,13 @@ class _$RegisterChargeViewModelImpl
             (identical(other.projectName, projectName) ||
                 other.projectName == projectName) &&
             (identical(other.month, month) || other.month == month) &&
-            (identical(other.amount, amount) || other.amount == amount));
+            (identical(other.amount, amount) || other.amount == amount) &&
+            (identical(other.member, member) || other.member == member));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, projectName, month, amount);
+  int get hashCode =>
+      Object.hash(runtimeType, projectName, month, amount, member);
 
   /// Create a copy of RegisterChargeViewModel
   /// with the given fields replaced by the non-null parameter values.
@@ -179,7 +200,8 @@ abstract class _RegisterChargeViewModel implements RegisterChargeViewModel {
   const factory _RegisterChargeViewModel(
       {required final ProjectName? projectName,
       required final int? month,
-      required final String? amount}) = _$RegisterChargeViewModelImpl;
+      required final String? amount,
+      required final Member? member}) = _$RegisterChargeViewModelImpl;
 
   @override
   ProjectName? get projectName;
@@ -187,6 +209,8 @@ abstract class _RegisterChargeViewModel implements RegisterChargeViewModel {
   int? get month;
   @override
   String? get amount;
+  @override
+  Member? get member;
 
   /// Create a copy of RegisterChargeViewModel
   /// with the given fields replaced by the non-null parameter values.
