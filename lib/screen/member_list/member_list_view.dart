@@ -14,6 +14,10 @@ class MemberListView extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final memberList = ref.watch(memberMasterProvider);
     return Scaffold(
+      floatingActionButton: FloatingActionButton(
+          child: const Icon(Icons.add),
+          onPressed: () =>
+              AutoRouter.of(context).push(const RegisterMemberRoute())),
       body: Column(
         children: [
           Expanded(
@@ -49,21 +53,6 @@ class MemberListView extends ConsumerWidget {
               Text('BN ${member.bn.yearOfJoined.toString()}')
             ],
           ),
-        ),
-      ),
-    );
-  }
-
-  Widget _memberRow(Member member, void Function(Member member) onTap) {
-    return GestureDetector(
-      onTap: () => onTap(member),
-      child: Container(
-        decoration: BoxDecoration(border: Border.all(color: Colors.black)),
-        child: Row(
-          children: [
-            Text(member.name.fullName),
-            Text('BN ${member.bn.yearOfJoined.toString()}')
-          ],
         ),
       ),
     );
