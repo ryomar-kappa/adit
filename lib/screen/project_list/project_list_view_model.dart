@@ -1,4 +1,4 @@
-import 'package:adit/model/project.dart';
+import 'package:adit/model/project/project.dart';
 
 class ProjectListViewModel {
   final List<Project> projectList;
