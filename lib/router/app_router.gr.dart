@@ -65,3 +65,22 @@ class MemberListRoute extends PageRouteInfo<void> {
     },
   );
 }
+
+/// generated route for
+/// [ProjectListView]
+class ProjectListRoute extends PageRouteInfo<void> {
+  const ProjectListRoute({List<PageRouteInfo>? children})
+      : super(
+          ProjectListRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'ProjectListRoute';
+
+  static PageInfo page = PageInfo(
+    name,
+    builder: (data) {
+      return const ProjectListView();
+    },
+  );
+}
