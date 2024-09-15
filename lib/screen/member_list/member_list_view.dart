@@ -1,7 +1,6 @@
 import 'package:adit/model/member/member.dart';
+import 'package:adit/provider/member_list_provider.dart';
 import 'package:adit/router/app_router.dart';
-import 'package:adit/screen/_common/async_value_widget.dart';
-import 'package:adit/screen/member_list/member_list_presenter.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
@@ -13,34 +12,31 @@ class MemberListView extends ConsumerWidget {
   });
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final viewModel = ref.watch(memberListPresenter);
+    final memberList = ref.watch(memberMasterProvider);
     return Scaffold(
-      body: AsyncValueWidget(
-        value: viewModel,
-        buildData: (viewModel) => Column(
-          children: [
-            Row(
-              children: [
-                FilledButton(
-                    onPressed: () => AutoRouter.of(context).maybePop(),
-                    child: const Text('戻る'))
-              ],
-            ),
-            Expanded(
-              child: SingleChildScrollView(
-                child: Column(
-                  children: [
-                    for (final member in viewModel.memberList)
-                      _memberRow(
-                          member,
-                          (member) => AutoRouter.of(context)
-                              .push(MemberDetailRoute(member: member)))
-                  ],
-                ),
+      body: Column(
+        children: [
+          Row(
+            children: [
+              FilledButton(
+                  onPressed: () => AutoRouter.of(context).maybePop(),
+                  child: const Text('戻る'))
+            ],
+          ),
+          Expanded(
+            child: SingleChildScrollView(
+              child: Column(
+                children: [
+                  for (final member in memberList)
+                    _memberRow(
+                        member,
+                        (member) => AutoRouter.of(context)
+                            .push(MemberDetailRoute(member: member)))
+                ],
               ),
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }

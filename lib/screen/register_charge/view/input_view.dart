@@ -48,25 +48,21 @@ class InputView extends ConsumerWidget {
 
   Widget _inputProjectForm(
       RegisterChargeViewModel viewModel, RegisterChargePresenter presenter) {
-    return Column(
-      children: [
-        DropdownButton(
-            value: viewModel.projectName,
-            items: [
-              DropdownMenuItem<ProjectName>(
-                value: ProjectName(value: 'Tiger'),
-                child: const Text('Tiger'),
-              ),
-              DropdownMenuItem<ProjectName>(
-                value: ProjectName(value: 'Bloom'),
-                child: const Text('Bloom'),
-              )
-            ],
-            onChanged: (projectName) {
-              presenter.onChangeProjectname(projectName);
-            }),
-      ],
-    );
+    return DropdownButton(
+        value: viewModel.projectName,
+        items: [
+          DropdownMenuItem<ProjectName>(
+            value: ProjectName(value: 'Tiger'),
+            child: const Text('Tiger'),
+          ),
+          DropdownMenuItem<ProjectName>(
+            value: ProjectName(value: 'Bloom'),
+            child: const Text('Bloom'),
+          )
+        ],
+        onChanged: (projectName) {
+          presenter.onChangeProjectname(projectName);
+        });
   }
 
   Widget _inputAmount(
