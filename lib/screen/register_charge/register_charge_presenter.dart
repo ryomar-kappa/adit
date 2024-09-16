@@ -1,6 +1,5 @@
 import 'package:adit/model/charge/members_charge.dart';
 import 'package:adit/model/charge/year_month.dart';
-import 'package:adit/model/member/hrid.dart';
 import 'package:adit/model/member/member.dart';
 import 'package:adit/model/project/project_name.dart';
 import 'package:adit/repository/charge_repository.dart';
@@ -37,7 +36,7 @@ class RegisterChargePresenter
 
   void onRegister() {
     final charge = MembersChargeByMonth.from(
-        HRID(hrid: '101284'), YearMonth(year: 2024, month: state.month!), [
+        state.member!.id, YearMonth(year: 2024, month: state.month!), [
       CreateChargeCommand(
           projectName: state.projectName!.value,
           amount: int.parse(state.amount!))

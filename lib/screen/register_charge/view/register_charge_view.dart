@@ -16,8 +16,17 @@ class RegisterChargeView extends ConsumerWidget {
         children: [
           const InputView(),
           FilledButton(
-              onPressed: () {
+              onPressed: () async {
                 presenter.onRegister();
+                await showDialog(
+                    context: context,
+                    builder: (context) => const SizedBox(
+                          height: 300,
+                          width: 300,
+                          child: Dialog(
+                            child: Text('登録が完了しました'),
+                          ),
+                        ));
                 AutoRouter.of(context).popUntilRoot();
               },
               child: Text('登録'))

@@ -16,77 +16,108 @@ class InputView extends ConsumerWidget {
     final viewModel = ref.watch(registerChargePresenter);
     return Column(
       children: [
-        Text('メンバー'),
         _inputMember(viewModel, presenter,
             memberMaster: ref.watch(memberMasterProvider)),
-        Text('プロジェクト'),
         _inputProjectForm(viewModel, presenter,
             projectNameMaster:
                 ref.watch(projectMasterProvider).map((e) => e.name).toList()),
-        Text('月'),
         _inputMonthForm(viewModel, presenter),
-        Text('工数'),
-        _inputAmount(viewModel, presenter)
+        _inputAmount(viewModel, presenter),
       ],
-    );
-  }
-
-  Widget _inputMonthForm(
-      RegisterChargeViewModel viewModel, RegisterChargePresenter presenter) {
-    return DropdownButton(
-        value: viewModel.month,
-        items: const [
-          DropdownMenuItem<int>(value: 1, child: Text('1月')),
-          DropdownMenuItem<int>(value: 2, child: Text('2月')),
-          DropdownMenuItem<int>(value: 3, child: Text('3月')),
-          DropdownMenuItem<int>(value: 4, child: Text('4月')),
-          DropdownMenuItem<int>(value: 5, child: Text('5月')),
-          DropdownMenuItem<int>(value: 6, child: Text('6月')),
-          DropdownMenuItem<int>(value: 7, child: Text('7月')),
-          DropdownMenuItem<int>(value: 8, child: Text('8月')),
-          DropdownMenuItem<int>(value: 9, child: Text('9月')),
-          DropdownMenuItem<int>(value: 10, child: Text('10月')),
-          DropdownMenuItem<int>(value: 11, child: Text('11月')),
-          DropdownMenuItem<int>(value: 12, child: Text('12月')),
-        ],
-        onChanged: (month) {
-          presenter.onChangeMonth(month);
-        });
-  }
-
-  Widget _inputProjectForm(
-      RegisterChargeViewModel viewModel, RegisterChargePresenter presenter,
-      {required List<ProjectName> projectNameMaster}) {
-    return DropdownButton(
-        value: viewModel.projectName,
-        items: projectNameMaster
-            .map((projectName) => DropdownMenuItem(
-                value: projectName, child: Text(projectName.value)))
-            .toList(),
-        onChanged: (projectName) {
-          presenter.onChangeProjectname(projectName);
-        });
-  }
-
-  Widget _inputAmount(
-      RegisterChargeViewModel viewModel, RegisterChargePresenter presenter) {
-    return TextFormField(
-      initialValue: viewModel.amount,
-      onChanged: presenter.onChangeAmount,
     );
   }
 
   Widget _inputMember(
       RegisterChargeViewModel viewModel, RegisterChargePresenter presenter,
       {required List<Member> memberMaster}) {
-    return DropdownButton(
-        value: viewModel.member,
-        items: memberMaster
-            .map((member) => DropdownMenuItem(
-                value: member, child: Text(member.name.fullName)))
-            .toList(),
-        onChanged: (member) {
-          presenter.onChangeMember(member);
-        });
+    return Row(
+      children: [
+        const Expanded(flex: 1, child: Text('メンバー')),
+        Flexible(
+          flex: 4,
+          child: DropdownButton<Member>(
+            value: viewModel.member,
+            items: memberMaster
+                .map((member) => DropdownMenuItem(
+                    value: member, child: Text(member.name.fullName)))
+                .toList(),
+            onChanged: (member) {
+              presenter.onChangeMember(member);
+            },
+          ),
+        ),
+      ],
+    );
+  }
+
+  Widget _inputProjectForm(
+      RegisterChargeViewModel viewModel, RegisterChargePresenter presenter,
+      {required List<ProjectName> projectNameMaster}) {
+    return Row(
+      children: [
+        const Expanded(flex: 1, child: Text('プロジェクト')),
+        Flexible(
+          flex: 4,
+          child: DropdownButton<ProjectName>(
+            value: viewModel.projectName,
+            items: projectNameMaster
+                .map((projectName) => DropdownMenuItem(
+                    value: projectName, child: Text(projectName.value)))
+                .toList(),
+            onChanged: (projectName) {
+              presenter.onChangeProjectname(projectName);
+            },
+          ),
+        ),
+      ],
+    );
+  }
+
+  Widget _inputMonthForm(
+      RegisterChargeViewModel viewModel, RegisterChargePresenter presenter) {
+    return Row(
+      children: [
+        const Expanded(flex: 1, child: Text('月')),
+        Flexible(
+          flex: 4,
+          child: DropdownButton<int>(
+            value: viewModel.month,
+            items: const [
+              DropdownMenuItem<int>(value: 1, child: Text('1月')),
+              DropdownMenuItem<int>(value: 2, child: Text('2月')),
+              DropdownMenuItem<int>(value: 3, child: Text('3月')),
+              DropdownMenuItem<int>(value: 4, child: Text('4月')),
+              DropdownMenuItem<int>(value: 5, child: Text('5月')),
+              DropdownMenuItem<int>(value: 6, child: Text('6月')),
+              DropdownMenuItem<int>(value: 7, child: Text('7月')),
+              DropdownMenuItem<int>(value: 8, child: Text('8月')),
+              DropdownMenuItem<int>(value: 9, child: Text('9月')),
+              DropdownMenuItem<int>(value: 10, child: Text('10月')),
+              DropdownMenuItem<int>(value: 11, child: Text('11月')),
+              DropdownMenuItem<int>(value: 12, child: Text('12月')),
+            ],
+            onChanged: (month) {
+              presenter.onChangeMonth(month);
+            },
+          ),
+        ),
+      ],
+    );
+  }
+
+  Widget _inputAmount(
+      RegisterChargeViewModel viewModel, RegisterChargePresenter presenter) {
+    return Row(
+      children: [
+        const Expanded(flex: 1, child: Text('工数')),
+        Expanded(
+          flex: 4,
+          child: TextFormField(
+            initialValue: viewModel.amount,
+            onChanged: presenter.onChangeAmount,
+          ),
+        ),
+      ],
+    );
   }
 }

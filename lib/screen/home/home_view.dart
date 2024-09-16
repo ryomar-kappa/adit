@@ -1,5 +1,6 @@
 import 'package:adit/screen/member_list/member_list_view.dart';
 import 'package:adit/screen/project_list/project_list_view.dart';
+import 'package:adit/screen/register_charge/view/register_charge_view.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 
@@ -10,7 +11,7 @@ class HomeView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
-      length: 2,
+      length: 3,
       child: Scaffold(
         appBar: AppBar(
           title: Text('ホーム'),
@@ -20,10 +21,17 @@ class HomeView extends StatelessWidget {
             ),
             Tab(
               text: 'プロジェクト',
+            ),
+            Tab(
+              text: 'チャージ登録',
             )
           ]),
         ),
-        body: TabBarView(children: [MemberListView(), ProjectListView()]),
+        body: TabBarView(children: [
+          MemberListView(),
+          ProjectListView(),
+          RegisterChargeView()
+        ]),
       ),
     );
   }

@@ -21,7 +21,7 @@ final chargeRepository =
 
 class ChargeRepository {
   Future<List<MembersChargeByMonth>> fetchChargeByHrid(HRID hrid) async {
-    return serverChargeList;
+    return serverChargeList.where((charge) => charge.hrid == hrid).toList();
   }
 
   Future<void> registerCharge(MembersChargeByMonth memberChargeByMonth) async {
