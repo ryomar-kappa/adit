@@ -13,13 +13,28 @@ class ProjectListView extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final projectList = ref.watch(projectMasterProvider);
     return Scaffold(
-      floatingActionButton: FloatingActionButton(
-          child: const Icon(Icons.add),
-          onPressed: () =>
-              AutoRouter.of(context).push(const RegisterProjectRoute())),
-      body: Wrap(
+      body: Column(
         children: [
-          for (final project in projectList) _projectCard(project, (project) {})
+          const SizedBox(height: 16),
+          FilledButton(
+              onPressed: () =>
+                  AutoRouter.of(context).push(const RegisterProjectRoute()),
+              child: const Row(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Icon(Icons.add),
+                  Text('新規登録'),
+                ],
+              )),
+          const SizedBox(height: 16),
+          Expanded(
+            child: Wrap(
+              children: [
+                for (final project in projectList)
+                  _projectCard(project, (project) {})
+              ],
+            ),
+          ),
         ],
       ),
     );
@@ -38,13 +53,6 @@ class ProjectListView extends ConsumerWidget {
           child: Center(child: Text(project.name.value)),
         ),
       ),
-    );
-  }
-
-  Widget _projectRow(Project project) {
-    return Container(
-      decoration: BoxDecoration(border: Border.all(color: Colors.black)),
-      child: Text(project.name.value),
     );
   }
 }
